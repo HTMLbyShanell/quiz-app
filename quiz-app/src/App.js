@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './footer'
 
 export default function App() {
 	const questions = [
@@ -40,7 +41,7 @@ export default function App() {
 		},
 	];
 
-	const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 
@@ -63,7 +64,7 @@ export default function App() {
 					You scored {score} out of {questions.length}
 				</div>
 			) : (
-				<>
+				<React.Fragment>
 					<div className='question-section'>
 						<div className='question-count'>
 							<span>Question {currentQuestion + 1}</span>/{questions.length}
@@ -75,8 +76,9 @@ export default function App() {
 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 						))}
 					</div>
-				</>
+				</React.Fragment>
 			)}
+      <Footer/>
 		</div>
 	);
 }
